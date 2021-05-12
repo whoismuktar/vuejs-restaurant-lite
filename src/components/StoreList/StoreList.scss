@@ -1,2 +1,41 @@
-.store-list {
+// For Desktop
+@media (min-width: 801px) {
+    .store-list {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+
+        &__item {
+            max-width: 25%;
+            flex: auto;
+        }
+    }
+}
+.search_wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 25px;
+
+    input {
+        height: 30px;
+    }
+}
+
+.vert_align {
+    display: flex;
+    justify-content: center;
+}
+
+.parent_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text_center {
+    text-align: center;
+}
+
+.half_height {
+    min-height: 50vh;
 }
