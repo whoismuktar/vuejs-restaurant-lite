@@ -10,7 +10,7 @@
     </div>
 
     <div class="loader_wrapper vert_align" v-if="typing">
-      <img src="@/assets/img/loader.gif" width="40%">
+      <img src="@/assets/img/loader.gif" width="10%">
     </div>
     <div class="parent_center half_height" v-else-if="storesWithImages.length < 1">
       <em class="text_center">
@@ -35,7 +35,7 @@
 </style>
 <script>
 import Store from '@/components/Store/Store';
-import _ from 'lodash';
+import { map, size } from 'lodash';
 
 export default {
   name: 'StoreList',
@@ -78,14 +78,14 @@ export default {
         });
       }
 
-      return _.map(stores, function(store) {
+      return map(stores, function(store) {
         store["image"] = "https://via.placeholder.com/300?text=" + store.name;
 
         return store;
       });
     },
     storesCount () {
-      return _.size(this.stores);
+      return size(this.stores);
     }
   }
 };
