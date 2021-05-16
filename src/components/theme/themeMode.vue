@@ -1,12 +1,11 @@
 <template>
   <div class="theme light_dark_mode">
-        {{ isDarkMode }}
-      <label class="switch">
-        <input v-model="isDarkMode" @change="handleThemeChange" type="checkbox" id="togBtn">
+      <label class="switchTheme">
+        <input v-model="isDarkMode" @change="handleThemeChange" type="checkbox" id="switchInput">
         <div class="slider round">
 
-         <span class="light">Dark</span>
-         <span class="dark">Light</span>
+         <span v-if="isDarkMode" class="toggle_label dark">Dark</span>
+         <span v-else class="toggle_label light">Light</span>
 
         </div>
       </label>
@@ -14,14 +13,14 @@
 </template>
 
 <style lang="scss">
-@import './themeMode.scss';
+@import '~@/components/theme//themeMode.scss';
 </style>
 
 <script>
 export default {
   data() {
     return {
-      isDarkMode: null,
+      isDarkMode: false,
     }
   },
   methods: {

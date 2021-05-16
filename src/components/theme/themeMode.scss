@@ -1,15 +1,17 @@
 @import '@/assets/styles/variables/_color.scss';
 
-.switch {
+.switchTheme {
   position: fixed;
   display: inline-block;
   width: 90px;
   height: 34px;
   right: 45px;
   bottom: 26px;
-}
 
-.switch input {display:none;}
+  & #switchInput {
+    display: none;
+  }
+}
 
 .slider {
   position: absolute;
@@ -21,42 +23,48 @@
   background-color: var(--color-highlight);
   -webkit-transition: .4s;
   transition: .4s;
-}
 
-.slider:before {
+
+&:before {
   position: absolute;
   content: "";
   height: 26px;
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: white;
-  box-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(166,173,201,.2);
+  background-color: var(--color-secondary);
   -webkit-transition: .4s;
   transition: .4s;
 }
+}
+
 
 input:checked + .slider {
-  background-color: var(--color-primary);
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  
+  &:before {
+    -webkit-transform: translateX(55px);
+    -ms-transform: translateX(55px);
+    transform: translateX(55px);
+    background-color: var(--color-primary);
+  }
+
+  & .dark {
+    color: var(--color-primary);
+    display: block;
+  }
+
+  & .light {
+   display: none;
+  }
 }
 
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(55px);
-  -ms-transform: translateX(55px);
-  transform: translateX(55px);
-}
 
 /*------ ADDED CSS ---------*/
-.light
-{
-  display: none;
-}
 
-.light, .dark {
+.dark, .light {
+  margin-left: 10px;
   color: white;
   position: absolute;
   transform: translate(-50%,-50%);
@@ -66,11 +74,9 @@ input:checked + .slider:before {
   font-family: Verdana, sans-serif;
 }
 
-input:checked+ .slider .light
-{display: block;}
-
-input:checked + .slider .dark {
- display: none;
+.dark {
+  display: none;
+  margin-left: -10px;
 }
 
 /*--------- END --------*/
@@ -78,7 +84,8 @@ input:checked + .slider .dark {
 /* Rounded sliders */
 .slider.round {
   border-radius: 34px;
-}
 
-.slider.round:before {
-  border-radius: 50%;}
+  &:before {
+    border-radius: 50%;
+  }
+}
