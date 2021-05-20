@@ -4,6 +4,10 @@
       <h2 class="store__title">{{ title }}</h2>
       <span class="store__location">{{ location }}</span>
       <img :src="photo" :alt="title" :title="title" />
+      <div class="store__textCenter">
+        <h3>Joke of The Day</h3>
+        <em>{{ joke }}</em>
+      </div>
     </div>
   </div>
 </template>
@@ -24,6 +28,10 @@ export default {
       default: null
     },
     photo: {
+      type: String,
+      default: null
+    },
+    joke: {
       type: String,
       default: null
     }
