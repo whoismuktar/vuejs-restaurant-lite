@@ -8,6 +8,8 @@
       :textHorizontalAlignment="textHorizontalAlignment"
     />
 
+    <daily-joke />
+
     <landing-screen v-if="ingredients.length" :secretIngredients="ingredients" />
     <h3 v-else>
         <span>No scecret formula for you. Be sure to have made a previosu input</span>
@@ -21,19 +23,20 @@
 <script>
 import Banner from "@/components/Banner/Banner";
 import LandingScreen from "@/components/LandingScreen/LandingScreen";
+import DailyJoke from "@/components/DailyJoke/DailyJoke";
 
 export default {
   components: {
     Banner,
     LandingScreen,
+    DailyJoke,
   },
   data() {
     return {
       ingredients: [],
       backgroundMedia: {
         type: "image",
-        src:
-          "https://png.pngtree.com/thumb_back/fw800/back_our/20190620/ourmid/pngtree-fashion-food-poster-background-image_159294.jpg",
+        src: "https://joybauer.com/wp-content/uploads/2016/02/thumb_2328_content_big_wide.jpg",
       },
       text: "Muktar's Restaurant",
       textDistribution: "top",
