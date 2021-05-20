@@ -1,0 +1,17 @@
+.jod_wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: var(--space-xxs);
+    
+        .jod_label {
+            color: var(--color-white);
+            font-weight: bold;
+            background-color: var(--color-highlight);
+            border-radius: var(--space-xxs);
+            padding: var(--space-xxs);
+        }
+    
+        .jod_marquee {
+            width: 80%;
+        }
+}
