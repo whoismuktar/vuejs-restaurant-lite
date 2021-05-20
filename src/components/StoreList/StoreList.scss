@@ -16,14 +16,34 @@
     justify-content: flex-end;
     margin-bottom: 25px;
 
-    input {
-        height: 30px;
+    #searchQuery {
+        height: 32px;
+    }
+
+    .search_btn_wrapper {
+        margin-left: 8px;
+
+        .search-btn {
+            border: 0;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .search_active {
+            background-color: red;
+        }
+
+        .search_inactive {
+            background-color: var(--color-highlight);
+        }
     }
 }
 
 .vert_align {
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
 
 .parent_center {
@@ -38,4 +58,19 @@
 
 .half_height {
     min-height: 50vh;
+}
+
+.load_next_wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 50px auto;
+
+        #perLoad_btn {
+            height: 40px;
+            width: 40%;
+            background-color: var(--color-highlight);
+            color: var(--color-white);
+            border: 0;
+            cursor: pointer;
+        }
 }
