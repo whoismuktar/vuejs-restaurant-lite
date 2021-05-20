@@ -8,9 +8,12 @@
 </template>
 
 <script>
-import moment from "moment";
+import dayjs from "dayjs";
 import StoreList from '@/components/StoreList/StoreList';
-const stores = require('@/assets/stores/stores.json');
+import stores from "@/assets/stores/stores";
+
+var advancedFormat = require('dayjs/plugin/advancedFormat')
+dayjs.extend(advancedFormat)
 
 export default {
   name: 'Stores',
@@ -19,9 +22,17 @@ export default {
   },
   data () {
     return {
-      currentTime: moment().format('dddd, MMMM Do YYYY, h:mm:ss a'),
-      stores
+      currentTime: dayjs().format('dddd, MMMM Do YYYY, h:mm:ss a'),
+      stores: []
     }
+  },
+  methods: {
+    getStores() {
+        this.stores = stores();
+      }
+  },
+  created() {
+    this.getStores();
   },
   computed: {
     welcomeMessage () {
@@ -30,7 +41,7 @@ export default {
   },
   mounted() {
     const setTimer = () => setTimeout(() => {
-      this.currentTime = moment().format('dddd, MMMM Do YYYY, h:mm:ss a');
+      this.currentTime = dayjs().format('dddd, MMMM Do YYYY, h:mm:ss a');
       setTimer();
     }, 1000);
     setTimer();
